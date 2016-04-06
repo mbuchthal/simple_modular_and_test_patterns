@@ -17,5 +17,5 @@ describe('greet', () => {
 describe('arguments', () => {
   it('should be an array', () => {
     expect(Array.isArray(greet.args)).to.eql(true);
-  })
-})
+  });
+});

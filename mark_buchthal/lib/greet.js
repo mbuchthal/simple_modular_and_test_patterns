@@ -3,7 +3,7 @@ const args = process.argv;
 
 const Greet = module.exports = function(name) {
   this.args = args,
-  this.name = process.argv[2] || name
+  this.name = name
 };
 
 Greet.prototype.hello = function () {
