@@ -24,7 +24,8 @@ gulp.task('lint:nontest', () => {
         'quotes': [1, 'single'],
         'indent': [1, 2]
       },
-      envs: ['es6']
+      envs: ['es6'],
+      useEslintrc: true
     }))
     .pipe(eslint.format());
 });
