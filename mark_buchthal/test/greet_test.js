@@ -2,20 +2,20 @@
 const expect = require('chai').expect;
 const Greet = require(__dirname + '/../lib/greet');
 
-const greet = new Greet('Mark');
+const myGreet = new Greet('Mark');
 
 describe('greet', () => {
   it('should have a name', () => {
-    expect(greet.name).to.eql('Mark');
+    expect(myGreet.name).to.eql('Mark');
   });
 
-  it('should say hello ' + greet.name, () => {
-    expect(greet.hello()).to.eql('hello Mark');
+  it('should say hello ' + myGreet.name, () => {
+    expect(myGreet.greet()).to.eql('hello Mark');
   });
 });
 
 describe('arguments', () => {
   it('should be an array', () => {
-    expect(Array.isArray(greet.args)).to.eql(true);
+    expect(Array.isArray(myGreet.args)).to.eql(true);
   });
 });

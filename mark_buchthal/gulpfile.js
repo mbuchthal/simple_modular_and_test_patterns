@@ -12,7 +12,8 @@ gulp.task('lint:test', () => {
       rules: {
         'quotes': [1, 'single']
       },
-      envs: ['mocha', 'es6']
+      envs: ['mocha', 'es6'],
+      semi: ['error', 'always', { 'omitLastInOneLineBlock': true}]
     }))
     .pipe(eslint.format());
 });
@@ -22,7 +23,8 @@ gulp.task('lint:nontest', () => {
     .pipe(eslint({
       rules: {
         'quotes': [1, 'single'],
-        'indent': [1, 2]
+        'indent': [1, 2],
+        semi: ['error', 'always', { 'omitLastInOneLineBlock': true}]
       },
       envs: ['es6'],
       useEslintrc: true
@@ -37,7 +39,7 @@ gulp.task('test', () => {
 
 gulp.task('watch', () => {
   gulp.watch([files, testFiles], ['default']);
-})
+});
 
 gulp.task('lint', ['lint:test', 'lint:nontest']);
 gulp.task('default', ['lint', 'test']);
