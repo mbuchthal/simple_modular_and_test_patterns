@@ -1,21 +1,28 @@
 
 const expect = require('chai').expect;
-const Greet = require(__dirname + '/../lib/greet');
-
-const greet = new Greet('Mark');
+const speak = require(__dirname + '/../bin/greet');
 
 describe('greet', () => {
-  it('should have a name', () => {
-    expect(greet.name).to.eql('Mark');
+  before(() => {
+    this.process_backup = process.argv;
+    process.argv = [null,null,'Mark'];
   });
 
-  it('should say hello ' + greet.name, () => {
-    expect(greet.hello()).to.eql('hello Mark');
+  after(() => {
+    process.argv = this.process_backup;
+  });
+
+  it('should have a name', () => {
+    expect(speak()).to.eql('hello Mark');
   });
 });
 
 describe('arguments', () => {
-  it('should be an array', () => {
-    expect(Array.isArray(greet.args)).to.eql(true);
-  })
-})
+  before(() => {
+    process.argv = [];
+  });
+
+  it('should be undefined', () => {
+    expect(speak()).to.eql('hello undefined');
+  });
+});
