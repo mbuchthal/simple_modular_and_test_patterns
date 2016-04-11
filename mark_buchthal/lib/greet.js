@@ -1,13 +1,9 @@
 
 const args = process.argv;
+const speak = module.exports = exports = {};
 
-const Greet = module.exports = function(name) {
-  this.args = args,
-  this.name = name;
-};
-
-Greet.prototype.greet = function () {
-  return 'hello ' + this.name;
+speak.greet = function (name) {
+  return 'hello ' + name;
 };
 
 if (args[2]) {
